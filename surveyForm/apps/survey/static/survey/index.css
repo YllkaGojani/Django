@@ -1,0 +1,10 @@
+*{
+	width: 980px;
+	margin: 0px auto;
+	margin-top: 5px;
+}
+
+input,select,textarea,p{
+	width: 40%;
+	margin-bottom: 10px;
+}

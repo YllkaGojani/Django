@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home</title>
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'survey/index.css'%}">	
+</head>
+<body>
+	<form action="/survey/process" method="post">
+		{% csrf_token %}
+		<p>Your name: <input type="text" name="your_name"></p>
+		<p>Dojo location: <select name="location">
+			<option value="Mountain View">Mountain View</option>
+			<option value="San Francisco">San Francisco</option>
+			<option value="Seattle">Seattle</option>
+		</select></p>
+		<p>Favorite language: <select name="language">
+			<option value="Javascript">Javascript</option>
+			<option value="Python">Python</option>
+			<option value="Java">Java</option>
+		</select></p>
+		<p>Comment(optional):</p>
+		<p><textarea  name="comment"></textarea></p>
+		<p><input type="submit" value="Submit"></p>
+	</form>
+</body>
+</html>
