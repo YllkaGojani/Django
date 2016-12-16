@@ -1,0 +1,3 @@
+Random Word
+This assignment required to create a Django application that generated a random word of length 14.
+Each time you generate a new random word, the number of attempts should increment by one.
