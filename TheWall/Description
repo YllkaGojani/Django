@@ -1,0 +1,5 @@
+The Wall ERD
+This assignment required to create the structure of The Wall database using Django.
+    We have a user who has messages
+    Each message can have many comments
+    Each comment is associated with a user
