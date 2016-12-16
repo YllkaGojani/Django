@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Yllka</title>
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'generator/index.css'%}">	
+</head>
+<body>
+	<p>Random word attempt #{{request.session.num}}:</p>
+	<h1>{{request.session.word}}</h1>	
+	<form action="/random" method="post">
+		{% csrf_token %}
+		<input type="hidden" name="word">
+		<input type="submit" value="Generate">	
+	</form>
+</body>
+</html>

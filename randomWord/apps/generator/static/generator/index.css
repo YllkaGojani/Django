@@ -1,0 +1,13 @@
+*{
+	width: 970px;
+	margin: 0px auto;
+	text-align: center;
+}
+
+input{
+	width: 20%;
+}
+
+p,h1,input{
+	margin-bottom: 10px;
+}
