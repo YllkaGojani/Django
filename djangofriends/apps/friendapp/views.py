@@ -62,13 +62,47 @@ def index(req):
 	# 	print friend.user.first_name
 
 # 14
-    exclude_users = models.Users.objects.filter(id__in = [4,5,6])
-    friendships = models.Friendships.objects.exclude(user__in=exclude_users)
-    friend = dict()
-    for f in friendships:
-        if f.user not in exclude_users:
-            friend[f.user.id] = f.user
-    print friend
-    print friendships
-    context = {'friendships':friendships}
-    return render(req, "friendapp/index.html",context)	
+#     exclude_users = models.Users.objects.filter(id__in = [4,5,6])
+#     friendships = models.Friendships.objects.exclude(user__in=exclude_users)
+#     friend = dict()
+#     for f in friendships:
+#         if f.user not in exclude_users:
+#             friend[f.user.id] = f.user
+#     print friend
+#     print friendships
+#     context = {'friendships':friendships}
+#     return render(req, "friendapp/index.html",context)	
+
+
+
+# ====== FRIENDSHIPS II ======
+
+# 1
+	# friend = models.Friendships.objects.all()
+	# print friend.query
+
+# 2
+	# friend = models.Friendships.objects.filter(user__first_name='Michael')
+	# print friend.query
+
+# 3
+	# friend = models.Friendships.objects.exclude(user__first_name='Daniel')
+	# print friend.query
+
+# 4
+	# friend = models.Friendships.objects.filter(user__id=1) | models.Friendships.objects.filter(user__last_name='Hernandez')
+	# print friend.query
+
+# 5
+	# friend = models.Friendships.objects.order_by('friend__first_name').distinct()
+	# print friend.query
+	# context = {'friendships' : friend}
+
+# 6,7
+	# users = models.Users.objects.filter(usersfriend__friend__id=2)
+	# print (users.query)
+
+# 8
+	users = models.Users.objects.filter(usersfriend__friend__id=1) | models.Users.objects.filter(usersfriend__friend__last_name='Hernandez') 
+	context = {'users' : users}
+	return render(req, "friendapp/index.html", context)
