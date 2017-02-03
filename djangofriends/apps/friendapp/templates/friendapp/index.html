@@ -6,12 +6,23 @@
   </head>
   <body>
     <h1> I've got some friends? </h1>
+<!--     {% for user in users %}
+		<p>{{user.first_name}} {{user.last_name}}
+    {% for friendship in user.usersfriend.all %}
+      {% if friendships.friend.id == 2 %}
+        <b>{{friendship.friend.first_name}}</b>
+      {% endif %}
+    {% endfor %}
+    </p>
+  	{% endfor %} -->
     {% for user in users %}
-		<p>{{user.first_name}} {{user.last_name}}</p>
-  	{% endfor %}
+    <p>{{user.first_name}} {{user.last_name}}</p>
+    {% endfor %}
 
 	{% for friend in friendships %}
 		<p>{{friend.user.first_name}} {{friend.user.last_name}}</p>
 	{% endfor %}
+
+
   </body>
 </html>
